@@ -4,13 +4,13 @@ import 'package:tasktopro/controller/utils/custom_color.dart';
 class CustomBusinessDetailsField extends StatelessWidget {
   final bool obscureText;
   final String? hintText;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final TextInputType keyboardType;
 
   const CustomBusinessDetailsField({
     super.key,
     this.obscureText = false,
-    required this.controller,
+     this.controller,
     this.keyboardType = TextInputType.text,
     this.hintText,
   });

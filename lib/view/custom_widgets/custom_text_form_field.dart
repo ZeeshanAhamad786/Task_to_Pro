@@ -3,7 +3,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tasktopro/controller/utils/custom_color.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  final String hintText;
+  final String? hintText;
   final Widget? suffixIcon;
   final bool obscureText;
   final TextEditingController controller;
@@ -12,7 +12,7 @@ class CustomTextFormField extends StatelessWidget {
 
   const CustomTextFormField({
     super.key,
-    required this.hintText,
+     this.hintText,
     this.suffixIcon,
     this.obscureText = false,
     required this.controller,

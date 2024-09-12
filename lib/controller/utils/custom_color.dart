@@ -18,6 +18,7 @@ class CustomColor{
   static const Color blackColor10=Color(0xff0F0F0F);
   static const Color blackColor11=Color(0XFF1D1D1D);
   static const Color blackColor12=Color(0XFF29292C);
+  static const Color blackColor13=Color(0XFF292929);
   static const Color blackColorN=Color(0XFF1C1B1B);
   static const Color greyColor=Color(0xffC3C3C3);
   static const Color greyColor1=Color(0xffE0E0E0);
@@ -29,6 +30,8 @@ class CustomColor{
   static const Color greyColor7=Color(0xffCBD0DC);
   static const Color greyColor8=Color(0xffA9ACB4);
   static const Color greyColor9=Color(0xffECECEC);
+  static const Color greyColorSite=Color(0xff9A9A9A);
+  static const Color greyColorReview=Color(0xff5C6065);
   static const Color greyColor10=Color(0xff787A79);
   static const Color redColor3=Color(0xffFF3B30);
   static const Color greenColor3=Color(0xff34C759);

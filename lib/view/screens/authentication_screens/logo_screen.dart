@@ -3,21 +3,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tasktopro/controller/utils/custom_color.dart';
+import 'package:tasktopro/view/screens/authentication_screens/create_task_pro.dart';
 import 'package:tasktopro/view/screens/authentication_screens/sign_up_screen.dart';
 import '../../custom_widgets/custom_sized.dart';
 import 'login_screen.dart';
-class LogoScreen extends StatefulWidget {
-  const LogoScreen({super.key});
-
-  @override
-  _LogoScreenState createState() => _LogoScreenState();
-}
-
-class _LogoScreenState extends State<LogoScreen> {
-  RxBool isFirstButtonActive = true.obs;
-
+class LogoScreen extends StatelessWidget {
+   const LogoScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    RxBool isFirstButtonActive = true.obs;
     return
       Obx(() =>  Scaffold(
         backgroundColor: Colors.white,
@@ -28,7 +22,9 @@ class _LogoScreenState extends State<LogoScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 getVerticalSpace(32.h),
-                Center(child: SvgPicture.asset("assets/svg/logo.svg")),
+                Center(child: SvgPicture.asset("assets/svg/taskLogo.svg")),
+                getVerticalSpace(3.h),
+                Image.asset("assets/png/TaskToPro.png",height: 38.px,width: 207.px,),
                 getVerticalSpace(20.h),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -41,7 +37,7 @@ class _LogoScreenState extends State<LogoScreen> {
                     ),
                   ),
                   onPressed: () {
-                    Get.off(() => const SignUpScreen());
+                    Get.to(() => const SignUpScreen());
                     isFirstButtonActive.value = true;
                   },
                   child: Text(
@@ -63,7 +59,7 @@ class _LogoScreenState extends State<LogoScreen> {
                     ),
                   ),
                   onPressed: () {
-                    Get.off(()=>const LoginScreen());
+                    Get.to(()=>const LoginScreen());
                     isFirstButtonActive.value = false;
 
                   },

@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tasktopro/controller/utils/custom_text_style.dart';
+import 'package:tasktopro/view/screens/authentication_screens/sign_up_screen.dart';
+import 'package:tasktopro/view/screens/authentication_screens/login_screen.dart';
 import '../../custom_widgets/custom_elevated_button.dart';
 import '../../custom_widgets/custom_sized.dart';
 import '../../custom_widgets/custom_text_form_field.dart';
@@ -84,7 +86,10 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
                 },
               )),
               getVerticalSpace(3.h),
-              Center(child: CustomElevatedButton(text: "Save", onPressed: (){}))
+              Center(child: CustomElevatedButton(text: "Save", onPressed: (){
+                Get.to(() => const LoginScreen());
+
+              }))
             ],),
         ),
       ),

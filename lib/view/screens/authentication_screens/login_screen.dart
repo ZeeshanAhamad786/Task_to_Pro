@@ -8,11 +8,13 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tasktopro/controller/utils/custom_color.dart';
 import 'package:tasktopro/controller/utils/custom_text_style.dart';
 import 'package:tasktopro/view/screens/authentication_screens/reset_password_screen.dart';
+import 'package:tasktopro/view/screens/authentication_screens/create_task_pro.dart';
 import 'package:tasktopro/view/screens/authentication_screens/sign_up_screen.dart';
 
 import '../../custom_widgets/custom_elevated_button.dart';
 import '../../custom_widgets/custom_sized.dart';
 import '../../custom_widgets/custom_text_form_field.dart';
+import '../bottom_navigation_screen/bottom_navigation_screen.dart';
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -74,8 +76,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Text("Forgot password",style: CustomTextStyle.textForgotOrange,))),
               getVerticalSpace(3.h),
               Center(
-                child: CustomElevatedButton(text: "Login", onPressed: (){
-                  // Get.to(()=>const BottomNavigationScreen());
+                child: CustomElevatedButton(
+                    text: "Login", onPressed: (){
+                  Get.to(()=>const BottomNavigationScreen());
                 }),
               ),
 
