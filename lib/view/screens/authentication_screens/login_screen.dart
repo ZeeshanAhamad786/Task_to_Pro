@@ -8,9 +8,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tasktopro/controller/utils/custom_color.dart';
 import 'package:tasktopro/controller/utils/custom_text_style.dart';
 import 'package:tasktopro/view/screens/authentication_screens/reset_password_screen.dart';
-import 'package:tasktopro/view/screens/authentication_screens/create_task_pro.dart';
 import 'package:tasktopro/view/screens/authentication_screens/sign_up_screen.dart';
-
 import '../../custom_widgets/custom_elevated_button.dart';
 import '../../custom_widgets/custom_sized.dart';
 import '../../custom_widgets/custom_text_form_field.dart';
@@ -26,6 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController=TextEditingController();
   final TextEditingController passwordController=TextEditingController();
   RxBool isPasswordObscure = true.obs;
+  RxBool isChecked = false.obs;
   void togglePasswordVisibility() {
     isPasswordObscure.value = !isPasswordObscure.value;
   }
@@ -74,7 +73,50 @@ class _LoginScreenState extends State<LoginScreen> {
                     Get.to(()=>const ResetPasswordScreen());
                   },
                       child: Text("Forgot password",style: CustomTextStyle.textForgotOrange,))),
-              getVerticalSpace(3.h),
+              getVerticalSpace(2.h),
+              Container(
+                margin: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.3),
+                padding: EdgeInsets.symmetric(horizontal: 2.w,vertical: 1.h),
+                decoration: BoxDecoration(color: Colors.white,
+                    border: Border.all(color: const Color(0xffD3D3D3)),
+                    borderRadius: BorderRadius.circular(12)),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Obx(() => GestureDetector(
+                      onTap: () {
+                        isChecked.value = !isChecked.value;
+                      },
+                      child: Container(
+                        height: 21,
+                        width: 21,
+                        decoration: BoxDecoration(
+                          color: Colors.white ,
+                          border: Border.all(
+                            color:isChecked.value? Colors.green:Color(0xffD3D3D3), // Always show green border
+                            width: 2.0, // Fixed green border width
+                          ),
+                          borderRadius: BorderRadius.circular(4.0), // Optional: make it look more like a checkbox
+                        ),
+                        child: isChecked.value
+                            ?  Center(
+                          child: Icon(
+                            Icons.check,
+                            color:isChecked.value?Colors.green:Colors.white, // Green tick when checked
+                            size: 18,
+                          ),
+                        )
+                            : null, // No icon when unchecked
+                      ),
+                    )),
+                    SizedBox(width: 2.w,),
+                    Text("im not a robot"),
+                    Spacer(),
+                    Image.asset("assets/png/reCAPTCHA.png",width: 48.px,height: 45.px,)
+                  ],
+                ),
+              ),
+              getVerticalSpace(5.h),
               Center(
                 child: CustomElevatedButton(
                     text: "Login", onPressed: (){

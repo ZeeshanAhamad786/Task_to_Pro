@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:tasktopro/controller/utils/custom_color.dart';
 import 'package:tasktopro/controller/utils/custom_text_style.dart';
 import 'package:tasktopro/view/custom_widgets/custom_sized.dart';
-
 import '../../../controller/post_code_controller.dart';
+
 class PostCodeScreen extends StatefulWidget {
   const PostCodeScreen({super.key});
   @override
   State<PostCodeScreen> createState() => _PostCodeScreenState();
 }
 class _PostCodeScreenState extends State<PostCodeScreen> {
+
   List<PostCodeController> data = [
     PostCodeController(category: 'Carpenter', imageUrl: 'assets/png/carpenterImage.png', name: 'The left side leg of the table is broken.',
         time: '2 Days ago'),
@@ -20,6 +22,8 @@ class _PostCodeScreenState extends State<PostCodeScreen> {
     PostCodeController(category: 'Plumber', imageUrl: 'assets/png/plumberImage.png', name: 'The left side leg of the table is broken.',
          time: 'Yesterday '),
   ];
+  PageController controller = PageController();
+
   @override
   Widget build(BuildContext context) {
     return   Scaffold(
@@ -96,6 +100,56 @@ class _PostCodeScreenState extends State<PostCodeScreen> {
           )
         ],),
       ),
-    );
+      floatingActionButton: Container(
+        height: 60,
+        padding: EdgeInsets.only(left: 9.w),
+        width: MediaQuery.of(context).size.width,
+        child: FloatingActionButton(
+          backgroundColor: CustomColor.orangeColor1,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: .1.h),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/png/ttpdm_logo_white.png", height: 40, width: 40),
+                getHorizontalSpace(1.w),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      getVerticalSpace(1.h),
+
+                         Text(
+                          """Do you need a simple advertising solution?\nDownload Advyro""",
+                          style: CustomTextStyle.textAccountBlack1,
+                        ),
+
+                      SmoothPageIndicator(
+                        controller: controller,
+                        count: 2, // The number of pages/images
+                        axisDirection: Axis.horizontal,
+                        effect: const SlideEffect(
+                          spacing: 8.0,
+                          radius: 4.0,
+                          dotWidth: 8.0,
+                          dotHeight: 8.0,
+                          paintStyle: PaintingStyle.fill,
+                          strokeWidth: 1.5,
+                          dotColor: Colors.grey,
+                          activeDotColor: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SvgPicture.asset("assets/svg/download.svg"),
+              ],
+            ),
+          ),
+          onPressed: () {},
+        ),
+      ),    );
   }
 }

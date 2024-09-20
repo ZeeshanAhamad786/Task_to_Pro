@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tasktopro/controller/utils/custom_color.dart';
-import 'package:tasktopro/view/screens/authentication_screens/create_task_pro.dart';
 import 'package:tasktopro/view/screens/authentication_screens/sign_up_screen.dart';
 import '../../custom_widgets/custom_sized.dart';
 import 'login_screen.dart';

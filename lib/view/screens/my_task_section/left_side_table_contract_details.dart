@@ -226,7 +226,7 @@ class _LeftSideTableContractDetailsState extends State<LeftSideTableContractDeta
                                   // Add your deposit logic here
                                 },
                                 child: Text(
-                                  'Submmit',
+                                  'Summit',
                                   style: CustomTextStyle.textSubmit,overflow: TextOverflow.ellipsis,
                                 ),
                                 style: ElevatedButton.styleFrom(
